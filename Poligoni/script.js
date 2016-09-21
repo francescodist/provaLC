@@ -4,7 +4,7 @@ $("document").ready(function(){
   alert = function(message) {
     $("body").append("<div>"+message+"</div>");
   }
-  
+
   // METODO CLASSICO CON PROTOTIPI //
   function Poligono(n) {
     var numeroLati = n;
@@ -47,12 +47,16 @@ $("document").ready(function(){
     //scelta casuale tra Rettangolo e Poligono generico
     if(Math.floor(Math.random() * 2)==0){
       poligoni.push(new Rettangolo());
+      //creazione di button con riferimento alla stampa dell'oggetto appena creato
+      $("body").append("<button onclick='poligoni["+(poligoni.length-1)+"].stampaNumeroLati()'>Rettangolo</button>")
     }
     else {
       //in caso di Poligono generico scelta casuale di numero lati (tra 3 e 50)
       poligoni.push(new Poligono(Math.floor((Math.random() * 48) + 3)));
+      //creazione di button con riferimento alla stampa dell'oggetto appena creato
+      $("body").append("<button onclick='poligoni["+(poligoni.length-1)+"].stampaNumeroLati()'>Poligono</button>")
     }
-    //creazione di button con riferimento alla stampa dell'oggetto appena creato
-    $("body").append("<button onclick='poligoni["+(poligoni.length-1)+"].stampaNumeroLati()'>Poligono N. "+poligoni.length+"</button>")
+
+
   }
 })
